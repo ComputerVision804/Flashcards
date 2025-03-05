@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Flashcard Review{% endblock %}
+{% block content %}
+<div class="card">
+    <h2>{{ card.question }}</h2>
+    {% if card.image %}
+        <img src="{{ url_for('static', filename='images/' ~ card.image) }}" alt="Image for flashcard" class="card-image">
+    {% endif %}
+    {% if card.audio %}
+        <audio controls>
+            <source src="{{ url_for('static', filename='audio/' ~ card.audio) }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    {% endif %}
+    {% if card.hint %}
+        <p><strong>Hint:</strong> {{ card.hint }}</p>
+    {% endif %}
+    <p><strong>Answer:</strong> {{ card.answer }}</p>
+    {% if card.explanation %}
+        <p><em>Explanation:</em> {{ card.explanation }}</p>
+    {% endif %}
+    <form method="post">
+        <input type="hidden" name="question" value="{{ card.question }}">
+        <button type="submit" name="mark" value="correct">Mark Correct</button>
+        <button type="submit" name="mark" value="incorrect">Mark Incorrect</button>
+    </form>
+</div>
+{% endblock %}

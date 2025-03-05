@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Statistics{% endblock %}
+{% block content %}
+<div class="stats">
+    <h2>Statistics for {{ username }}</h2>
+    <p>Total Reviewed: {{ total_reviewed }}</p>
+    <p>Score: {{ score }}</p>
+    <p>Accuracy: {{ accuracy }}%</p>
+</div>
+{% endblock %}

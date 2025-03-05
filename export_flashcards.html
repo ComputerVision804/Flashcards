@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Export Flashcards{% endblock %}
+{% block content %}
+<div class="export-form">
+    <h2>Export Flashcards</h2>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="flashcard_file" accept=".json">
+        <input type="submit" value="Import">
+    </form>
+</div>
+{% endblock %}
